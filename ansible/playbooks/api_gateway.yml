@@ -2,7 +2,6 @@
 - hosts: api_gateway
   roles:
     - { role: docker, tags: docker }
-    - { role: awscli, tags: awscli }
     - { role: api_gateway, tags: api_gateway }
   become: yes
   tags: deploy_api_gateway

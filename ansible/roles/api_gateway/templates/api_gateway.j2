@@ -2,9 +2,10 @@
 Description=Krakend API Gateway
 
 [Service]
+WorkingDirectory={{ api_gateway_dir }}
 TimeoutStartSec=60
 Restart=always
-ExecStart=/usr/bin/docker run -p 8080:8080 -v $PWD:/etc/krakend/ --rm --name %n {{ image_name }} --config /etc/krakend/krakend.json
+ExecStart=/usr/bin/docker run -p 8080:8080 -v $PWD:/etc/krakend/ --rm --name %n {{ image_name }} --config {{ api_gateway_dir }}/api_gateway.json
 ExecStop=/usr/bin/docker stop %n
 
 [Install]

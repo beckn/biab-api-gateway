@@ -8,14 +8,14 @@
 
 - name: Copy config file
   template:
-    src: "krakend.json"
-    dest: "{{ user_dir }}/krakend.json"
+    src: "api_gateway.json"
+    dest: "{{ user_dir }}/api_gateway.json"
     backup: yes
 
 - name: Create Krakend Service
   template:
-    src: "krakend_service.j2"
-    dest: "/etc/systemd/system/{{ service_name }}.service"
+    src: "api_gateway.j2"
+    dest: "/etc/systemd/system/api_gateway.service"
     backup: yes
   notify:
     - Systemctl Daemon Reload

@@ -1,0 +1,42 @@
+{
+  "version": 2,
+  "extra_config": {
+    "github_com/devopsfaith/krakend-gologging": {
+      "level": "INFO",
+      "prefix": "[KRAKEND]",
+      "syslog": false,
+      "stdout": true,
+      "format": "logstash"
+    },
+    "github_com/devopsfaith/krakend-metrics": {
+      "collection_time": "60s",
+      "proxy_disabled": false,
+      "router_disabled": false,
+      "backend_disabled": false,
+      "endpoint_disabled": false,
+      "listen_address": ":8090"
+    }
+  },
+  "timeout": "3000ms",
+  "cache_ttl": "300s",
+  "output_encoding": "json",
+  "name": "bap-service",
+  "port": 9001,
+  "endpoints": [
+    {
+      "endpoint": "/actuator/*",
+      "method": "GET",
+      "output_encoding": "json",
+      "extra_config": {}
+    },
+    {
+      "endpoint": "/client/v1/search",
+      "method": "GET",
+      "output_encoding": "json",
+      "extra_config": {},
+      "querystring_params": [
+        "searchString"
+      ]
+    }
+  ]
+}

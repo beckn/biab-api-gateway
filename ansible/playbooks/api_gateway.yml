@@ -1,0 +1,8 @@
+---
+- hosts: api_gateway
+  roles:
+    - { role: docker, tags: docker }
+    - { role: awscli, tags: awscli }
+    - { role: krakend, tags: krakend }
+  become: yes
+  tags: deploy_api_gateway

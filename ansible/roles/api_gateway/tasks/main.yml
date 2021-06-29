@@ -16,7 +16,6 @@
   template:
     src: "api_gateway.json.j2"
     dest: "{{ root_dir }}/{{ config_file }}"
-    backup: yes
 
 - name: Service file path
   debug:

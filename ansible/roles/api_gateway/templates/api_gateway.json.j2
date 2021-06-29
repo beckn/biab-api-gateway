@@ -13,7 +13,7 @@
   "cache_ttl": "300s",
   "output_encoding": "json",
   "name": "api_gateway",
-  "port": 9000,
+  "port": {{ port }},
   "endpoints": [
     {
       "endpoint": "/bap/actuator/{endpoint}",
@@ -42,7 +42,7 @@
       "endpoint": "/bap/client/{version}/{endpoint}",
       "method": "GET",
       "output_encoding": "json",
-      "querystring_params":[
+      "querystring_params": [
         "*"
       ],
       "extra_config": {
@@ -68,7 +68,7 @@
       "endpoint": "/bap/{version}/{endpoint}",
       "method": "POST",
       "output_encoding": "json",
-      "querystring_params":[
+      "querystring_params": [
         "*"
       ],
       "extra_config": {

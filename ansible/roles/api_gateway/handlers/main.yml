@@ -3,10 +3,10 @@
   shell: systemctl daemon-reload
 
 - name: Systemctl Enable Service
-  shell: "systemctl enable api_gateway"
+  shell: "systemctl enable api_gateway_node_{{ node }}"
 
 - name: Restart Service
   service:
-    name: "api_gateway"
+    name: "api_gateway_node_{{ node }}"
     state: restarted
 

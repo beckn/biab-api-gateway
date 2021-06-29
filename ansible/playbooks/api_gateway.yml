@@ -1,14 +1,20 @@
 ---
-- hosts: api_gateway_1
+- hosts: api_gateway
   roles:
     - { role: docker, tags: docker }
     - { role: api_gateway, tags: api_gateway }
+  vars:
+    node: 1
+    port: 9000
   become: yes
   tags: deploy_api_gateway
 
-- hosts: api_gateway_2
+- hosts: api_gateway
   roles:
     - { role: docker, tags: docker }
     - { role: api_gateway, tags: api_gateway }
+  vars:
+    node: 2
+    port: 9001
   become: yes
   tags: deploy_api_gateway

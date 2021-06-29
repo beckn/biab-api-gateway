@@ -16,7 +16,7 @@
   "port": 9000,
   "endpoints": [
     {
-      "endpoint": "/bap/actuator/{name}",
+      "endpoint": "/bap/actuator/{endpoint}",
       "method": "GET",
       "output_encoding": "json",
       "extra_config": {
@@ -26,10 +26,56 @@
       },
       "backend": [
         {
-          "url_pattern": "/actuator/{name}",
+          "url_pattern": "/actuator/{endpoint}",
           "encoding": "json",
           "sd": "static",
           "method": "GET",
+          "extra_config": {},
+          "host": [
+            "10.0.1.184:9001"
+          ],
+          "disable_host_sanitize": false
+        }
+      ]
+    },
+    {
+      "endpoint": "/bap/client/{version}/{endpoint}",
+      "method": "GET",
+      "output_encoding": "json",
+      "extra_config": {
+        "github.com/devopsfaith/krakend/proxy": {
+          "sequential": false
+        }
+      },
+      "backend": [
+        {
+          "url_pattern": "client/{version}/{endpoint}",
+          "encoding": "json",
+          "sd": "static",
+          "method": "GET",
+          "extra_config": {},
+          "host": [
+            "10.0.1.184:9001"
+          ],
+          "disable_host_sanitize": false
+        }
+      ]
+    },
+    {
+      "endpoint": "/bap/{version}/{endpoint}",
+      "method": "POST",
+      "output_encoding": "json",
+      "extra_config": {
+        "github.com/devopsfaith/krakend/proxy": {
+          "sequential": false
+        }
+      },
+      "backend": [
+        {
+          "url_pattern": "{version}/{endpoint}",
+          "encoding": "json",
+          "sd": "static",
+          "method": "POST",
           "extra_config": {},
           "host": [
             "10.0.1.184:9001"

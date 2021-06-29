@@ -18,6 +18,10 @@
     dest: "{{ root_dir }}/{{ config_file }}"
     backup: yes
 
+- name: Service file path
+  debug:
+    msg: "Path: /etc/systemd/system/api_gateway_node_{{ node }}.service"
+
 - name: Create Krakend Service
   template:
     src: "api_gateway.j2"

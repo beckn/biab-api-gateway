@@ -1,10 +1,6 @@
 ---
 - name: Pull docker image
   command: "docker pull {{ image_name }}"
-  notify:
-    - Systemctl Daemon Reload
-    - Systemctl Enable Service
-    - Restart Service
 
 - name: Create api gateway directory if it does not exist
   file:

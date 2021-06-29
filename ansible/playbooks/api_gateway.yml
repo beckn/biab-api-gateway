@@ -5,9 +5,11 @@
     - { role: api_gateway, tags: api_gateway }
   vars:
     node: 1
-    gateway_port: 9000
+    gateway_port: 9500
   become: yes
-  tags: deploy_api_gateway
+  tags:
+    - deploy_api_gateway
+    - deploy_api_gateway_node_1
 
 - hosts: api_gateway
   roles:
@@ -15,6 +17,8 @@
     - { role: api_gateway, tags: api_gateway }
   vars:
     node: 2
-    gateway_port: 9001
+    gateway_port: 9501
   become: yes
-  tags: deploy_api_gateway
+  tags:
+    - deploy_api_gateway
+    - deploy_api_gateway_node_2

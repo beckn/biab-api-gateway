@@ -2,10 +2,6 @@
 - name: Systemctl Daemon Reload
   shell: systemctl daemon-reload
 
-- name: Service name
-  debug:
-    msg: "Name: api_gateway_node_{{ node }}"
-
 - name: Systemctl Enable Service
   shell: "systemctl enable api_gateway_node_{{ node }}"
 

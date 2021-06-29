@@ -5,7 +5,7 @@ Description=Krakend API Gateway
 WorkingDirectory={{ root_dir }}
 TimeoutStartSec=60
 Restart=always
-ExecStart=/usr/bin/docker run -p {{ port }}:{{ port }} -v {{ root_dir }}:{{ root_dir_inside_container }} --rm --name %n {{ image_name }} run --config {{ root_dir_inside_container }}/{{ config_file }}
+ExecStart=/usr/bin/docker run -p {{ gateway_port }}:{{ gateway_port }} -v {{ root_dir }}:{{ root_dir_inside_container }} --rm --name %n {{ image_name }} run --config {{ root_dir_inside_container }}/{{ config_file }}
 ExecStop=/usr/bin/docker stop %n
 
 [Install]

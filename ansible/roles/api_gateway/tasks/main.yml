@@ -25,7 +25,14 @@
   template:
     src: "api_gateway.j2"
     dest: "/etc/systemd/system/api_gateway_node_{{ node }}.service"
-  notify:
-    - Systemctl Daemon Reload
-    - Systemctl Enable Service
-    - Restart Service
+
+- name: Systemctl Daemon Reload
+  shell: systemctl daemon-reload
+
+- name: Systemctl Enable Service
+  shell: "systemctl enable api_gateway_node_{{ node }}"
+
+- name: Restart Service
+  service:
+    name: "api_gateway_node_{{ node }}"
+    state: restarted

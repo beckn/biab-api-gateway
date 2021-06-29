@@ -21,7 +21,7 @@
 - name: Create Krakend Service
   template:
     src: "api_gateway.j2"
-    dest: "/etc/systemd/system/api_gateway.service"
+    dest: "/etc/systemd/system/api_gateway_node_{{ node }}.service"
     backup: yes
   notify:
     - Systemctl Daemon Reload

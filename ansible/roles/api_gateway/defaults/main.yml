@@ -2,6 +2,6 @@
 image_name: "devopsfaith/krakend"
 user_dir: /home/ubuntu
 root_dir: /etc/api_gateway
-root_dir_inside_container: /etc/api_gateway
+root_dir_inside_container: /etc/krakend
 port: 9000
-config_file: 9000
+config_file: api_gateway.json

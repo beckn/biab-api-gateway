@@ -2,40 +2,40 @@
   "version": 2,
   "extra_config": {
     "github_com/devopsfaith/krakend-gologging": {
-      "level": "INFO",
+      "level": "WARNING",
       "prefix": "[KRAKEND]",
       "syslog": false,
       "stdout": true,
-      "format": "logstash"
-    },
-    "github_com/devopsfaith/krakend-metrics": {
-      "collection_time": "60s",
-      "proxy_disabled": false,
-      "router_disabled": false,
-      "backend_disabled": false,
-      "endpoint_disabled": false,
-      "listen_address": ":8090"
+      "format": "default"
     }
   },
   "timeout": "3000ms",
   "cache_ttl": "300s",
   "output_encoding": "json",
-  "name": "bap-service",
-  "port": 9001,
+  "name": "api_gateway",
+  "port": 9000,
   "endpoints": [
     {
-      "endpoint": "/actuator/*",
+      "endpoint": "/bap/actuator/{name}",
       "method": "GET",
       "output_encoding": "json",
-      "extra_config": {}
-    },
-    {
-      "endpoint": "/client/v1/search",
-      "method": "GET",
-      "output_encoding": "json",
-      "extra_config": {},
-      "querystring_params": [
-        "searchString"
+      "extra_config": {
+        "github.com/devopsfaith/krakend/proxy": {
+          "sequential": false
+        }
+      },
+      "backend": [
+        {
+          "url_pattern": "/actuator/{name}}",
+          "encoding": "json",
+          "sd": "static",
+          "method": "GET",
+          "extra_config": {},
+          "host": [
+            "10.0.1.184:9001"
+          ],
+          "disable_host_sanitize": false
+        }
       ]
     }
   ]

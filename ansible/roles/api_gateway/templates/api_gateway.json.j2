@@ -166,7 +166,7 @@
       ]
     },
     {
-      "endpoint": "/bap/{version}/{endpoint}",
+      "endpoint": "/bap/client/{version}/{endpoint}",
       "method": "POST",
       "output_encoding": "json",
       "querystring_params": [
@@ -179,7 +179,7 @@
       },
       "backend": [
         {
-          "url_pattern": "{version}/{endpoint}",
+          "url_pattern": "client/{version}/{endpoint}",
           "encoding": "json",
           "sd": "static",
           "method": "POST",

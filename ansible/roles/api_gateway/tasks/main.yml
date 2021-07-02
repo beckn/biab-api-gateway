@@ -13,10 +13,6 @@
     src: "api_gateway.json.j2"
     dest: "{{ root_dir }}/{{ config_file }}"
 
-- name: Service file path
-  debug:
-    msg: "Path: /etc/systemd/system/api_gateway_node_{{ node }}.service"
-
 - name: Create Krakend Service
   template:
     src: "api_gateway.j2"

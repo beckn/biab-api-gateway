@@ -190,6 +190,32 @@
           "disable_host_sanitize": false
         }
       ]
+    },
+    {
+      "endpoint": "/bap/{version}/{endpoint}",
+      "method": "POST",
+      "output_encoding": "json",
+      "querystring_params": [
+        "*"
+      ],
+      "extra_config": {
+        "github.com/devopsfaith/krakend/proxy": {
+          "sequential": false
+        }
+      },
+      "backend": [
+        {
+          "url_pattern": "{version}/{endpoint}",
+          "encoding": "json",
+          "sd": "static",
+          "method": "POST",
+          "extra_config": {},
+          "host": [
+            "10.0.1.184:9001"
+          ],
+          "disable_host_sanitize": false
+        }
+      ]
     }
   ]
 }

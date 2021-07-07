@@ -88,7 +88,7 @@
       ]
     },
     {
-      "endpoint": "/bap/client/{version}/{endpoint}/{id}",
+      "endpoint": "/bap/client/{version}/{endpoint}",
       "method": "PUT",
       "output_encoding": "json",
       "querystring_params": [
@@ -101,7 +101,7 @@
       },
       "backend": [
         {
-          "url_pattern": "client/{version}/{endpoint}/{id}",
+          "url_pattern": "client/{version}/{endpoint}",
           "encoding": "json",
           "sd": "static",
           "method": "PUT",

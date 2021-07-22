@@ -1,5 +1,10 @@
 {
   "version": 2,
+  "timeout": "5000ms",
+  "cache_ttl": "300s",
+  "output_encoding": "json",
+  "name": "api_gateway",
+  "port": {{ gateway_port }},
   "extra_config": {
     "github_com/devopsfaith/krakend-gologging": {
       "level": "WARNING",
@@ -9,11 +14,6 @@
       "format": "default"
     }
   },
-  "timeout": "3000ms",
-  "cache_ttl": "300s",
-  "output_encoding": "json",
-  "name": "api_gateway",
-  "port": {{ gateway_port }},
   "endpoints": [
     {
       "endpoint": "/bap/actuator/{endpoint}",

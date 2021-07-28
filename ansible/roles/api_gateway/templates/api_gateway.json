@@ -4,7 +4,7 @@
   "cache_ttl": "300s",
   "output_encoding": "json",
   "name": "api_gateway",
-  "port": {{ gateway_port }},
+  "port": "{{ gateway_port }}",
   "extra_config": {
     "github_com/devopsfaith/krakend-gologging": {
       "level": "WARNING",
@@ -16,7 +16,7 @@
   },
   "endpoints": [
     {
-      "endpoint": "/bap/actuator/{endpoint}",
+      "endpoint": "/bap/client/actuator/{endpoint}",
       "method": "GET",
       "output_encoding": "json",
       "extra_config": {
@@ -39,7 +39,7 @@
       ]
     },
     {
-      "endpoint": "/bap/actuator/{endpoint}",
+      "endpoint": "/bap/client/actuator/{endpoint}",
       "method": "POST",
       "output_encoding": "json",
       "extra_config": {
@@ -62,58 +62,6 @@
       ]
     },
     {
-      "endpoint": "/bap/client/{version}/{endpoint}/{id}",
-      "method": "GET",
-      "output_encoding": "json",
-      "querystring_params": [
-        "*"
-      ],
-      "extra_config": {
-        "github.com/devopsfaith/krakend/proxy": {
-          "sequential": false
-        }
-      },
-      "backend": [
-        {
-          "url_pattern": "client/{version}/{endpoint}/{id}",
-          "encoding": "json",
-          "sd": "static",
-          "method": "GET",
-          "extra_config": {},
-          "host": [
-            "10.0.1.184:9001"
-          ],
-          "disable_host_sanitize": false
-        }
-      ]
-    },
-    {
-      "endpoint": "/bap/client/{version}/{endpoint}",
-      "method": "PUT",
-      "output_encoding": "json",
-      "querystring_params": [
-        "*"
-      ],
-      "extra_config": {
-        "github.com/devopsfaith/krakend/proxy": {
-          "sequential": false
-        }
-      },
-      "backend": [
-        {
-          "url_pattern": "client/{version}/{endpoint}",
-          "encoding": "json",
-          "sd": "static",
-          "method": "PUT",
-          "extra_config": {},
-          "host": [
-            "10.0.1.184:9001"
-          ],
-          "disable_host_sanitize": false
-        }
-      ]
-    },
-    {
       "endpoint": "/bap/client/{version}/{endpoint}",
       "method": "GET",
       "output_encoding": "json",
@@ -166,12 +114,9 @@
       ]
     },
     {
-      "endpoint": "/bap/client/{version}/get_order_policy",
-      "method": "POST",
+      "endpoint": "/bap/protocol/actuator/{endpoint}",
+      "method": "GET",
       "output_encoding": "json",
-      "querystring_params": [
-        "*"
-      ],
       "extra_config": {
         "github.com/devopsfaith/krakend/proxy": {
           "sequential": false
@@ -179,12 +124,34 @@
       },
       "backend": [
         {
-          "url_pattern": "client/{version}/get_order_policy",
+          "url_pattern": "/actuator/{endpoint}",
+          "encoding": "json",
+          "sd": "static",
+          "method": "GET",
+          "extra_config": {},
+          "host": [
+            "10.0.1.184:9001"
+          ],
+          "disable_host_sanitize": false
+        }
+      ]
+    },
+    {
+      "endpoint": "/bap/protocol/actuator/{endpoint}",
+      "method": "POST",
+      "output_encoding": "json",
+      "extra_config": {
+        "github.com/devopsfaith/krakend/proxy": {
+          "sequential": false
+        }
+      },
+      "backend": [
+        {
+          "url_pattern": "/actuator/{endpoint}",
           "encoding": "json",
           "sd": "static",
           "method": "POST",
           "extra_config": {},
-          "is_collection": true,
           "host": [
             "10.0.1.184:9001"
           ],
@@ -215,29 +182,6 @@
             "10.0.1.184:9002"
           ],
           "disable_host_sanitize": false
-        }
-      ]
-    },
-    {
-      "endpoint": "/bap/protocol/{version}/{endpoint}",
-      "method": "GET",
-      "output_encoding": "json",
-      "querystring_params": ["*"],
-      "extra_config": {
-        "github.com/devopsfaith/krakend/proxy": {
-          "sequential": false
-        }
-      },
-      "backend": [
-        {
-          "url_pattern": "protocol/{version}/{endpoint}",
-          "encoding": "json",
-          "sd": "static",
-          "method": "GET",
-          "extra_config": {},
-          "host": ["10.0.1.184:9002"],
-          "disable_host_sanitize": false,
-          "is_collection": true
         }
       ]
     }

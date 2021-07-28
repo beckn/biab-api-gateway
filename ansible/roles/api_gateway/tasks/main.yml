@@ -10,7 +10,7 @@
 
 - name: Copy config file
   template:
-    src: "api_gateway.json.j2"
+    src: "api_gateway.json"
     dest: "{{ root_dir }}/{{ config_file }}"
 
 - name: Create Krakend Service

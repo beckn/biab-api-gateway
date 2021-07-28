@@ -32,7 +32,7 @@
           "method": "GET",
           "extra_config": {},
           "host": [
-            "10.0.1.184:9001"
+            "http://internal-biab-qa-bap-api-1627558606.ap-south-1.elb.amazonaws.com:9001"
           ],
           "disable_host_sanitize": false
         }
@@ -55,7 +55,7 @@
           "method": "POST",
           "extra_config": {},
           "host": [
-            "10.0.1.184:9001"
+            "http://internal-biab-qa-bap-api-1627558606.ap-south-1.elb.amazonaws.com:9001"
           ],
           "disable_host_sanitize": false
         }
@@ -81,7 +81,7 @@
           "method": "GET",
           "extra_config": {},
           "host": [
-            "10.0.1.184:9001"
+            "http://internal-biab-qa-bap-api-1627558606.ap-south-1.elb.amazonaws.com:9001"
           ],
           "disable_host_sanitize": false
         }
@@ -107,7 +107,7 @@
           "method": "POST",
           "extra_config": {},
           "host": [
-            "10.0.1.184:9001"
+            "http://internal-biab-qa-bap-api-1627558606.ap-south-1.elb.amazonaws.com:9001"
           ],
           "disable_host_sanitize": false
         }
@@ -130,7 +130,7 @@
           "method": "GET",
           "extra_config": {},
           "host": [
-            "10.0.1.184:9001"
+            "http://internal-biab-qa-bap-api-1627558606.ap-south-1.elb.amazonaws.com:9002"
           ],
           "disable_host_sanitize": false
         }
@@ -153,7 +153,7 @@
           "method": "POST",
           "extra_config": {},
           "host": [
-            "10.0.1.184:9001"
+            "http://internal-biab-qa-bap-api-1627558606.ap-south-1.elb.amazonaws.com:9002"
           ],
           "disable_host_sanitize": false
         }
@@ -179,7 +179,7 @@
           "method": "POST",
           "extra_config": {},
           "host": [
-            "10.0.1.184:9002"
+            "http://internal-biab-qa-bap-api-1627558606.ap-south-1.elb.amazonaws.com:9002"
           ],
           "disable_host_sanitize": false
         }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "timeout": "5000ms",
+  "timeout": "10000ms",
   "cache_ttl": "300s",
   "output_encoding": "json",
   "name": "api_gateway",

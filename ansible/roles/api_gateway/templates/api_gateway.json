@@ -73,6 +73,9 @@
           "sequential": false
         }
       },
+      "headers_to_pass":[  
+        "*"
+      ],
       "backend": [
         {
           "url_pattern": "client/{version}/{endpoint}",
@@ -99,6 +102,9 @@
           "sequential": false
         }
       },
+      "headers_to_pass":[  
+        "*"
+      ],
       "backend": [
         {
           "url_pattern": "client/{version}/{endpoint}",
@@ -171,6 +177,9 @@
           "sequential": false
         }
       },
+      "headers_to_pass":[  
+        "*"
+      ],
       "backend": [
         {
           "url_pattern": "protocol/{version}/{endpoint}",

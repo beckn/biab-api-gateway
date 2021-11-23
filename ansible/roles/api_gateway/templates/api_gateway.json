@@ -64,7 +64,7 @@
     {
       "endpoint": "/bap/client/{version}/{endpoint}",
       "method": "GET",
-      "output_encoding": "json",
+      "output_encoding": "no-op",
       "querystring_params": [
         "*"
       ],
@@ -79,7 +79,7 @@
       "backend": [
         {
           "url_pattern": "client/{version}/{endpoint}",
-          "encoding": "json",
+          "encoding": "no-op",
           "sd": "static",
           "method": "GET",
           "extra_config": {},
@@ -93,7 +93,7 @@
     {
       "endpoint": "/bap/client/{version}/{endpoint}",
       "method": "POST",
-      "output_encoding": "json",
+      "output_encoding": "no-op",
       "querystring_params": [
         "*"
       ],
@@ -108,7 +108,7 @@
       "backend": [
         {
           "url_pattern": "client/{version}/{endpoint}",
-          "encoding": "json",
+          "encoding": "no-op",
           "sd": "static",
           "method": "POST",
           "extra_config": {},
